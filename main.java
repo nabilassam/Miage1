@@ -26,10 +26,12 @@ public class main {
     private static void drawLabyrinth(StringBuilder svgContent) {
         // Dessinez les murs du labyrinthe (exemple)
         for (int x = 0; x < 10; x++) {
+            svgContent.append("<rect x='" + 0 + "' y='" + 0 + "' width='" + 1000 + "' height='" + 1000 + "' fill='white' />");
             for (int y = 0; y < 10; y++) {
                 // Dessinez un mur à chaque coordonnée
                 if (x % 2 == 0 || y % 2 == 0) {
-                    svgContent.append("<rect x='" + x * 4 + "' y='" + y * 4 + "' width='4' height='4' fill='black' />");
+
+                    svgContent.append("<line x1='" + x + "' y1='" + y + "' x2='" + x+2 + "' y2='" + y+2 + "' stroke='black' />");
                 }
             }
         }
