@@ -34,7 +34,7 @@ public class generateur {
             if (x % 2 == 0 || y % 2 == 0) {
 
                svgContent.append("<line x1='" + x + "' y1='" + y + "' x2='" + x+2 + "' y2='" + y+2 + "' stroke='black' />");
-            }
+            }//test
          }
       }
    }
