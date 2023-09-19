@@ -1,3 +1,5 @@
+import models.Labyrinthe;
+
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -21,6 +23,9 @@ public class main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        Labyrinthe l=new Labyrinthe( 3);
+        System.out.println(l.toString());
     }
 
     private static void drawLabyrinth(StringBuilder svgContent) {

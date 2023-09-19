@@ -50,4 +50,15 @@ public class Case {
     public void setNom(int nom) {
         this.nom = nom;
     }
+
+    @Override
+    public String toString() {
+        return "Case{" +
+                "n=" + n +
+                ", s=" + s +
+                ", e=" + e +
+                ", o=" + o +
+                ", nom=" + nom +
+                '}';
+    }
 }
