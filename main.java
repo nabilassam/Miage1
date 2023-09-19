@@ -1,30 +1,15 @@
 import models.Labyrinthe;
-
+import SVG.generateur;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class main {
 
     public static void main(String[] args) {
-        StringBuilder svgContent = new StringBuilder();
-        svgContent.append("<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'>");
 
-        // Dessinez les éléments du labyrinthe
-        drawLabyrinth(svgContent);
-
-        // Fin du document SVG
-        svgContent.append("</svg>");
-
-        // Enregistrez le document SVG dans un fichier
-        try {
-            FileWriter fileWriter = new FileWriter("labyrinth.svg");
-            fileWriter.write(svgContent.toString());
-            fileWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Labyrinthe l=new Labyrinthe( 3);
+        Labyrinthe l=new Labyrinthe( 150);
+        System.out.println("l");
+        generateur.generer(l.getCases(),l.getLongeur());
         System.out.println(l.toString());
     }
 

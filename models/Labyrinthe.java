@@ -36,7 +36,6 @@ public class Labyrinthe {
         boolean b=true;
         do{
             i=new Random().nextInt(0,longeur*longeur-1);
-            System.out.println(i);
             int i2=new Random().nextInt(0,4);
             int i3;
 
@@ -48,7 +47,8 @@ public class Labyrinthe {
                     break;}
                     else {
                         cases[i].setN(false);
-                        cases[i3].setS(false);
+                        if(!(i3+longeur>=longeur*longeur))//à corriger
+                            cases[i3].setS(false);
                         changernombre(i,i3);
                         compteur++;
                         break;
@@ -121,5 +121,13 @@ public class Labyrinthe {
                 return true;
         }
         return false;
+    }
+
+    public int getLongeur() {
+        return longeur;
+    }
+
+    public Case[] getCases() {
+        return cases;
     }
 }
