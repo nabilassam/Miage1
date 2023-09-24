@@ -9,7 +9,7 @@ public class generateur {
 
    public static void generer(Case[] cases, int longeur){
       StringBuilder svgContent = new StringBuilder();
-      svgContent.append("<svg xmlns='http://www.w3.org/2000/svg' width='"+longeur*10+"' height='"+longeur*10+"'>");
+      svgContent.append("<svg xmlns='http://www.w3.org/2000/svg' width='"+longeur*10+"' height='"+(longeur*10+10)+"'>");
       // Dessiner les éléments du labyrinthe
       int y=0;
       int x=0;

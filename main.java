@@ -7,10 +7,9 @@ public class main {
 
     public static void main(String[] args) {
 
-        Labyrinthe l=new Labyrinthe( 150);
+        Labyrinthe l=new Labyrinthe( 500);
         System.out.println("l");
         generateur.generer(l.getCases(),l.getLongeur());
-        System.out.println(l.toString());
     }
 
     private static void drawLabyrinth(StringBuilder svgContent) {

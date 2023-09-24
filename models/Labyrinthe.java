@@ -36,7 +36,7 @@ public class Labyrinthe {
         boolean b=true;
         do{
             i=new Random().nextInt(0,longeur*longeur-1);
-            int i2=new Random().nextInt(0,4);
+            int i2=new Random().nextInt(0,3);
             int i3;
 
             switch (i2){
@@ -70,7 +70,7 @@ public class Labyrinthe {
                     if ((i+1)>=longeur*longeur)
                         break;
                     i3=i+1;
-                    if(i%longeur==1 || cases[i].getNom()==cases[i3].getNom()||!cases[i].getE()) {
+                    if(i%longeur==longeur-1 || cases[i].getNom()==cases[i3].getNom()||!cases[i].getE()) {
                         break;
                     }else {
                         cases[i].setE(false);

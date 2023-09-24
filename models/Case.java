@@ -1,14 +1,25 @@
 package models;
 
+import java.util.ArrayList;
+
 public class Case {
     Boolean n,s,e,o;
+    ArrayList<Case> c;
     int nom;
+    private boolean ouverte;
+
     public Case(int n){
      this.n=true;
      this.s=true;
      this.e=true;
      this.o=true;
      this.nom=n;
+        this.c=new ArrayList<Case>();
+        this.c.add(this);
+    }
+    public void fusion(Case c1){
+        c1.setNom(this.nom);
+        this.c.add(c1);
     }
 
     public Boolean getN() {
