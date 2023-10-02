@@ -102,11 +102,11 @@ public class Labyrinthe {
 
     private void changernombre(int i3, int i){
         int min=Math.min(cases[i3].getNom(),cases[i].getNom());
-        int max=Math.max(cases[i3].getNom(),cases[i].getNom());
-        for(int j=0;j<longeur*longeur;j++ ){
-            if(cases[j].getNom()==max)
-                cases[j].setNom(min);
-        }
+       if(min==cases[i3].getNom()){
+           cases[i3].fusion(cases[i]);
+       }else {
+           cases[i].fusion(cases[i3]);
+       }
     }
 
     @Override
@@ -115,7 +115,7 @@ public class Labyrinthe {
                 "cases=" + Arrays.toString(cases) +
                 "}";
     }
-    private boolean controle(){
+    public boolean controle(){
         for (int i =0;i<=longeur*longeur-2;i++){
             if(cases[i].getNom()!=cases[i+1].getNom())
                 return true;

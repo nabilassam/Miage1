@@ -6,9 +6,11 @@ public class Case {
     Boolean n,s,e,o;
     ArrayList<Case> c;
     int nom;
-    private boolean ouverte;
+    Case pere;
+
 
     public Case(int n){
+        this.pere=null;
      this.n=true;
      this.s=true;
      this.e=true;
@@ -18,8 +20,19 @@ public class Case {
         this.c.add(this);
     }
     public void fusion(Case c1){
-        c1.setNom(this.nom);
-        this.c.add(c1);
+        if (this.pere!=null){
+            this.pere.fusion(c1);
+        }else
+      if (c1.getPere()==null){
+          c1.setPere(this);
+          for (Case tmp:c1.getC()){
+              tmp.setNom(this.nom);
+          }
+          this.c.addAll(c1.getC());
+      }else{
+          fusion(c1.getPere());
+      }
+
     }
 
     public Boolean getN() {
@@ -58,8 +71,20 @@ public class Case {
         return nom;
     }
 
+    public ArrayList<Case> getC() {
+        return c;
+    }
+
     public void setNom(int nom) {
         this.nom = nom;
+    }
+
+    public Case getPere() {
+        return pere;
+    }
+
+    public void setPere(Case pere) {
+        this.pere = pere;
     }
 
     @Override
