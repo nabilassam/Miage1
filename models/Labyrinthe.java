@@ -12,7 +12,8 @@ public class Labyrinthe {
         cases= new Case[longeur*longeur];
         this.longeur = longeur;
         for (int i=0;i<longeur*longeur;i++){
-            cases[i]= new Case(i);
+            Case tmp =new Case(i);
+            cases[i]= tmp;
         }
         this.construirelabyrinthe();
     }
@@ -35,6 +36,7 @@ public class Labyrinthe {
 
         boolean b=true;
         do{
+
             i=new Random().nextInt(0,longeur*longeur-1);
             int i2=new Random().nextInt(0,3);
             int i3;
@@ -102,11 +104,13 @@ public class Labyrinthe {
 
     private void changernombre(int i3, int i){
         int min=Math.min(cases[i3].getNom(),cases[i].getNom());
-       if(min==cases[i3].getNom()){
-           cases[i3].fusion(cases[i]);
-       }else {
-           cases[i].fusion(cases[i3]);
-       }
+        if(min==cases[i3].getNom()){
+            cases[i3].fusion(cases[i]);
+        }else {
+            cases[i].fusion(cases[i3]);
+        }
+
+
     }
 
     @Override
@@ -125,6 +129,14 @@ public class Labyrinthe {
 
     public int getLongeur() {
         return longeur;
+    }
+
+    public int getEntre() {
+        return entre;
+    }
+
+    public int getSortie() {
+        return sortie;
     }
 
     public Case[] getCases() {

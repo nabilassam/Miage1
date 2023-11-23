@@ -6,7 +6,7 @@ public class Case {
     Boolean n,s,e,o;
     ArrayList<Case> c;
     int nom;
-    Case pere;
+    private  Case pere;
 
 
     public Case(int n){
@@ -20,18 +20,21 @@ public class Case {
         this.c.add(this);
     }
     public void fusion(Case c1){
+
         if (this.pere!=null){
             this.pere.fusion(c1);
         }else
-      if (c1.getPere()==null){
-          c1.setPere(this);
-          for (Case tmp:c1.getC()){
-              tmp.setNom(this.nom);
-          }
-          this.c.addAll(c1.getC());
-      }else{
-          fusion(c1.getPere());
-      }
+        if (c1.getPere()==null){
+            c1.setPere(this);
+            for (Case tmp:c1.getC()){
+                tmp.setNom(this.nom);
+            }
+            this.c.addAll(c1.getC());
+            
+        }else{
+            fusion(c1.getPere());
+        }
+
 
     }
 
